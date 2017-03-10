@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ModularJS</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="hero-unit" id="statsModule"></div>
+  <script id="stats-template" type="text/template">
+      <h2>Stats</h2>
+      <strong>people: {{people}}</strong>
+  </script>
+
+  <div id="peopleModule">
+    <h1>People</h1>
+    <input type="text" placeholder="name">
+    <button id="addPerson">Add Person</button>
+    <ul id="people">
+      <script id="people-template" type="text/template">
+        {{#people}}
+          <li>
+            <span>{{.}}</span>
+            <i class="del">X</i>
+          </li>
+        {{/people}}
+      </script>
+    </ul>
+  </div>
+
+  <script src="vendors/jquery.min.js"></script>
+  <script src="vendors/mustache.min.js"></script>
+  <script src="js/pubsub.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/people.js"></script>
+</body>
+</html>
