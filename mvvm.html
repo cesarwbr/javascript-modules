@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ModularJS</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <div id="peopleModule">
+    <h1>People</h1>
+    <input type="text" placeholder="name" data-bind="value: current, valueUpdate: 'afterkeydown'">
+    <button id="addPerson" data-bind="click: $root.addPerson">Add Person</button>
+    <ul id="people" data-bind="foreach: sortPeople">
+        <li>
+          <span data-bind="text: name"></span>
+          <i class="del" data-bind="click: $root.removePerson">X</i>
+        </li>
+      </script>
+    </ul>
+  </div>
+
+  <script src="vendors/knockout.min.js"></script>
+  <script src="js/mvvm/model.js"></script>
+  <script src="js/mvvm/view-model.js"></script>
+</body>
+</html>
