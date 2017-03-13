@@ -6,8 +6,8 @@ var model = (function Model () {
     events.emit('peopleChanged', people)
   }
 
-  function remove (index) {
-    people.splice(index, 1)
+  function remove (i) {
+    people.splice(i, 1)
     events.emit('peopleChanged', people)
   }
 
@@ -17,12 +17,13 @@ var model = (function Model () {
 
   function bind (event, callback) {
     events.on(event, callback)
+    events.emit('peopleChanged', people)
   }
 
   return {
-    create,
-    remove,
     read,
+    remove,
+    create,
     bind
   }
 })()

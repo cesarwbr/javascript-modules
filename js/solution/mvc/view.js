@@ -12,19 +12,19 @@ var view = (function View () {
 
   model.bind('peopleChanged', _render)
 
-  function _render(people) {
-    $ul.html(Mustache.render(template, {people: people}))
-  }
-
-  function _addPerson() {
+  function _addPerson(value) {
     controller.addPerson($input.val())
     $input.val('')
   }
 
-  function _deletePerson(event) {
+  function _deletePerson (index) {
     const $remove = $(event.target).closest('li')
     const i = $ul.find('li').index($remove)
 
     controller.deletePerson(i)
+  }
+
+  function _render(people) {
+    $ul.html(Mustache.render(template, {people: people.sort()}))
   }
 })()
